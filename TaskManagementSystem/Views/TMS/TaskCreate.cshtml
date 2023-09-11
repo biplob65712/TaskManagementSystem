@@ -1,0 +1,61 @@
+﻿@model TaskCreateVM
+
+
+<form method="post">
+    
+    <div class="form-group">
+        <label for="UserID">Users</label>
+        <select class="form-control" asp-for="UserID">
+            <option value="">----Select----</option>
+            @if (Model.Users != null)
+            {
+                @foreach (var user in Model.Users)
+                {
+                    <option value="@user.ID">@user.UserName</option>
+                }
+            }
+
+        </select>
+        <span asp-validation-for="UserID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="TaskTile">TaskTile</label>
+        <input type="text" class="form-control" asp-for="TaskTile" placeholder="TaskTile.....">
+        <span asp-validation-for="TaskTile" class="text-danger"></span>
+    </div>
+    <div class="">
+        <label for="TaskDesk">TaskDesk</label>
+        <textarea type="text" class="form-control" asp-for="TaskDesk" placeholder="TaskDesk....."></textarea>
+        <span asp-validation-for="TaskDesk" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="StartDate">Start Date</label>
+        <input type="date" class="form-control" asp-for="StartDate" placeholder="Start Date...">
+        <span asp-validation-for="StartDate"></span>
+    </div>
+    <div class="form-group">
+        <label for="EndDate">End Date</label>
+        <input type="date" class="form-control" asp-for="EndDate" placeholder="End Date...">
+        <span asp-validation-for="EndDate"></span>
+    </div>
+    <div class="form-group">
+        <label for="Status">Status</label>
+        <select class="form-control" asp-for="Status">
+            <option value="1">Pending</option>
+            <option value="2">Done</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+</form>
+
+
+
+<h5 style="text-align:right">@ViewBag.ErrorMSG</h5>
+
+

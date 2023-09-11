@@ -1,0 +1,54 @@
+﻿@model DashboardVM
+
+
+<h1 style="text-align:center">Dashboard</h1>
+
+<h5 style="text-align:right">@ViewBag.MySession</h5>
+<h5 style="text-align:right">Type: @ViewBag.roleShow</h5>
+<br />
+<br />
+
+@{
+    int slNumber = 0;
+}
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Role</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.UserList != null)
+        {
+            @foreach (var uuu in Model.UserList)
+            {
+                <tr>
+                    <td>@(++slNumber)</td>
+                    <td>@uuu.UserName</td>
+                    <td>@uuu.FullName</td>
+                    <td>@uuu.Role</td>
+                    <td>View | <a asp-action="Update" asp-route-id="@uuu.ID">Update</a></td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="5">No Data Found.</td></tr>
+        }
+
+    </tbody>
+</table>
+
+<br />
+<br />
+<a style="margin-left:1200px; text-decoration:none;" asp-controller="TMS" asp-action="Logout">Logout</a>
+
+
+
+

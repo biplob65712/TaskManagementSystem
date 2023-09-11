@@ -1,0 +1,64 @@
+﻿@model TaskIndexVM
+
+
+<h1 style="text-align:center">All Task List</h1>
+
+<h5 style="text-align:right">@ViewBag.MySession</h5>
+<h5 style="text-align:right">Type: @ViewBag.roleShow</h5>
+<br />
+<br />
+<a style="margin-left:1200px; text-decoration:none;" asp-controller="TMS" asp-action="TaskCreate">Task Create</a>
+<br />
+<br />
+@{
+    int slNumber = 0;
+}
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Task Tile</th>
+            <th scope="col">Task Desk</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">UserID</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.TaskList != null)
+        {
+            @foreach (var uuu in Model.TaskList)
+            {
+                <tr>
+                    <td>@(++slNumber)</td>
+                    <td>@uuu.TaskTile</td>
+                    <td>@uuu.TaskDesk</td>
+                    <td>@uuu.CreatedDate</td>
+                    <td>@uuu.StartDate</td>
+                    <td>@uuu.EndDate</td>
+                    <td>@uuu.Status</td>
+                    <td>@uuu.UserID</td>
+                    <td><a asp-action="TaskUpdate" asp-route-id="@uuu.ID">Update</a></td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="8">No Data Found.</td></tr>
+        }
+
+    </tbody>
+</table>
+
+<br />
+<br />
+<a style="margin-left:1200px; text-decoration:none;" asp-controller="TMS" asp-action="Logout">Logout</a>
+
+
+
+

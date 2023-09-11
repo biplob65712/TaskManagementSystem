@@ -1,0 +1,7 @@
+change server name
+
+this project done using code first approach 
+so you need add migration
+
+then go to database
+add some data manually in user table 

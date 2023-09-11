@@ -1,0 +1,39 @@
+﻿@model UserLoginVM
+
+
+
+<div class="container">
+    <div class="row">
+
+        @{
+            if (ViewBag.Message != null)
+            {
+                <p style="color:red;">@ViewBag.Message</p>
+            }
+        }
+
+        <form method="post" style="margin-left:400px; margin-top:100px;">
+            <div class="col-md-4">
+                <div class="bg-primary p-3 text-center">
+                    <h2>Login</h2>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter Name" asp-for="UserName">
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Enter password" asp-for="Password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <br />
+                <br />
+                <div class="d-grid">
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

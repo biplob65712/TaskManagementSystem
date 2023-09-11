@@ -1,0 +1,47 @@
+﻿@model TaskUpdateVM
+
+
+<form method="post">
+    <input type="hidden" asp-for="ID" />
+    <input type="hidden" asp-for="TaskTile" />
+    <input type="hidden" asp-for="TaskDesk">
+    <input type="hidden" asp-for="CreatedDate" />
+    <input type="hidden" asp-for="UserID" />
+
+
+    <div class="form-group">
+        <label for="StartDate">Start Date</label>
+        <input type="date" class="form-control" asp-for="StartDate" placeholder="Start Date...">
+        <span asp-validation-for="StartDate"></span>
+    </div>
+    <div class="form-group">
+        <label for="EndDate">End Date</label>
+        <input type="date" class="form-control" asp-for="EndDate" placeholder="End Date...">
+        <span asp-validation-for="EndDate"></span>
+    </div>
+    <div class="form-group">
+        <label for="Status">Status</label>
+        <select class="form-control" asp-for="Status">
+            <option value="1">Pending</option>
+            <option value="2">Done</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <br />
+    @* <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea type="text" class="form-control" asp-for="Description" placeholder="Descripton..."></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="SalesPrice">Sales Price</label>
+        <input type="text" class="form-control" asp-for="SalesPrice" placeholder="Sales Price...">
+        <span asp-validation-for="SalesPrice"></span>
+    </div> *@
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+
+</form>
